@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dgSpecHash": "Rz7xu+SMFutdkSy8SVGf9sMu8kSBj43CwVxssUwA3znLjrgJNvKAaqlTCgxUaagqkei8al66HtzGKUKybJSmdw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Initec\\Documents\\Personal\\dotnet_tinker\\openTK_windowTest\\openTK_windowTest.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Initec\\.nuget\\packages\\opentk\\4.7.7\\opentk.4.7.7.nupkg.sha512",
+    "C:\\Users\\Initec\\.nuget\\packages\\opentk.compute\\4.7.7\\opentk.compute.4.7.7.nupkg.sha512",
+    "C:\\Users\\Initec\\.nuget\\packages\\opentk.core\\4.7.7\\opentk.core.4.7.7.nupkg.sha512",
+    "C:\\Users\\Initec\\.nuget\\packages\\opentk.graphics\\4.7.7\\opentk.graphics.4.7.7.nupkg.sha512",
+    "C:\\Users\\Initec\\.nuget\\packages\\opentk.input\\4.7.7\\opentk.input.4.7.7.nupkg.sha512",
+    "C:\\Users\\Initec\\.nuget\\packages\\opentk.mathematics\\4.7.7\\opentk.mathematics.4.7.7.nupkg.sha512",
+    "C:\\Users\\Initec\\.nuget\\packages\\opentk.openal\\4.7.7\\opentk.openal.4.7.7.nupkg.sha512",
+    "C:\\Users\\Initec\\.nuget\\packages\\opentk.redist.glfw\\3.3.8.30\\opentk.redist.glfw.3.3.8.30.nupkg.sha512",
+    "C:\\Users\\Initec\\.nuget\\packages\\opentk.windowing.common\\4.7.7\\opentk.windowing.common.4.7.7.nupkg.sha512",
+    "C:\\Users\\Initec\\.nuget\\packages\\opentk.windowing.desktop\\4.7.7\\opentk.windowing.desktop.4.7.7.nupkg.sha512",
+    "C:\\Users\\Initec\\.nuget\\packages\\opentk.windowing.graphicslibraryframework\\4.7.7\\opentk.windowing.graphicslibraryframework.4.7.7.nupkg.sha512",
+    "C:\\Users\\Initec\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
