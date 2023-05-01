@@ -1,0 +1,5 @@
+C:\Users\Initec\Documents\Personal\dotnet_tinker\ImGuiNET_test\obj\Debug\net6.0\ImGuiNET_test.csproj.AssemblyReference.cache
+C:\Users\Initec\Documents\Personal\dotnet_tinker\ImGuiNET_test\obj\Debug\net6.0\ImGuiNET_test.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Initec\Documents\Personal\dotnet_tinker\ImGuiNET_test\obj\Debug\net6.0\ImGuiNET_test.AssemblyInfoInputs.cache
+C:\Users\Initec\Documents\Personal\dotnet_tinker\ImGuiNET_test\obj\Debug\net6.0\ImGuiNET_test.AssemblyInfo.cs
+C:\Users\Initec\Documents\Personal\dotnet_tinker\ImGuiNET_test\obj\Debug\net6.0\ImGuiNET_test.csproj.CoreCompileInputs.cache

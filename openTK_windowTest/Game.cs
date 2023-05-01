@@ -2,29 +2,55 @@ using OpenTK.Graphics.OpenGL4;
 using OpenTK.Windowing.Common;
 using OpenTK.Windowing.Desktop;
 using OpenTK.Windowing.GraphicsLibraryFramework;
+using OpenTK.Mathematics;
+
+using ImGuiNET;
 
 namespace testOne {
     public class Game : GameWindow {
 
-        Shader? shader;
+        public static float WindowWidth;
+        public static float WindowHeight;
+        public static float CameraWidth;
+        public static float CameraHeight;
 
-        float[] vertices = {
-            -0.5f, -0.5f, 0.0f, //Bottom-left vertex
-            0.5f, -0.5f, 0.0f, //Bottom-right vertex
-            0.0f,  0.5f, 0.0f  //Top vertex
-        };
+        ImGuiController UIController;
 
-        int VertexBufferObject;
-        int VertexArrayObject;
+        List<string[]> logData = new List<string[]>();
 
-        public Game(int width, int height, string title) :
-            base(GameWindowSettings.Default,
-                new NativeWindowSettings() 
-                { Size = (width, height), Title = title })
+        public Game(int width, int height, string title, string fontPath, float fontSize)
+            : base(GameWindowSettings.Default, new NativeWindowSettings()
+            {
+                Title = title,
+                Size = new Vector2i(width, height),
+                WindowBorder = WindowBorder.Resizable,
+                StartVisible = false,
+                StartFocused = true,
+                WindowState = WindowState.Normal,
+                API = ContextAPI.OpenGL,
+                Profile = ContextProfile.Core,
+                APIVersion = new Version(3, 3)
+            })
         {
+            // Center the window
+            //this.CenterWindow();
+            WindowHeight = Size.Y;
+            WindowWidth = Size.X;
+            CameraHeight = Size.Y;
+            CameraWidth = Size.X;
 
+            UIController = new ImGuiController((int)WindowWidth, (int)WindowHeight, fontPath, fontSize);
+
+            log("DEBUG", "message1");
+            log("DEBUG", "message2");
+            log("DEBUG", "message3");
+            log("DEBUG", "message4");
         }
 
+        public void log(string level, string message)
+        {
+            this.logData.Add(new string[] {level, message, DateTime.Now.ToString("HH:mm:ss")});
+        }
 
         protected override void OnUpdateFrame(FrameEventArgs e)
         {
@@ -34,69 +60,51 @@ namespace testOne {
 
             if (input.IsKeyDown(Keys.Escape))
             {
-                Close();
+                this.log("DEBUG", "Application close");
+                //Close();
             }
         }
 
         protected override void OnLoad()
         {
+            //GUI.LoadTheme();
+
+            this.VSync = VSyncMode.On;
+            this.IsVisible = true;
+
             base.OnLoad();
-            GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
-            VertexBufferObject = GL.GenBuffer();
-
-            GL.BindBuffer(BufferTarget.ArrayBuffer, VertexBufferObject);
-            GL.BufferData(BufferTarget.ArrayBuffer, vertices.Length * sizeof(float), vertices, BufferUsageHint.StaticDraw);
-
-            shader = new Shader("shader.vert", "shader.frag");
-
-            VertexArrayObject = GL.GenVertexArray();
-            GL.BindVertexArray(VertexArrayObject);
-
-            GL.BindBuffer(BufferTarget.ArrayBuffer, VertexBufferObject);
-            GL.BufferData(BufferTarget.ArrayBuffer, vertices.Length * sizeof(float), vertices, BufferUsageHint.StaticDraw);
-            // 3. then set our vertex attributes pointers
-            GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
-            GL.EnableVertexAttribArray(0);
-
-
+            
         }
 
         protected override void OnUnload()
         {
             base.OnUnload();
-
-            if (shader != null)
-            {
-                shader.Dispose();
-            }
-        }
-
-        protected override void OnRenderFrame(FrameEventArgs e)
-        {
-            base.OnRenderFrame(e);
-
-            GL.Clear(ClearBufferMask.ColorBufferBit);
-            
-            if (shader != null)
-            {
-                shader.Use();
-            }
-            GL.BindVertexArray(VertexArrayObject);
-            GL.DrawArrays(PrimitiveType.Triangles, 0, 3);
-
-            SwapBuffers();
         }
 
         protected override void OnResize(ResizeEventArgs e)
         {
-            base.OnResize(e);
+            WindowWidth = e.Width;
+            WindowHeight = e.Height;
+
+            UIController.WindowResized((int)WindowWidth, (int)WindowHeight);
 
             GL.Viewport(0, 0, e.Width, e.Height);
+            base.OnResize(e);
         }
 
-        
+        protected override void OnRenderFrame(FrameEventArgs args)
+        {
+            UIController.Update(this, (float)args.Time);
+            ImGui.DockSpaceOverViewport();
+            GUI.WindowOnOffs();
+            GUI.LogWindow(logData);
 
+            UIController.Render();
+            ImGuiController.CheckGLError("End of frame");
 
+            Context.SwapBuffers();            
+            base.OnRenderFrame(args);
+        }
     }
 }
