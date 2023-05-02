@@ -23,7 +23,7 @@ namespace testOne {
         Stopwatch timer;
         Shader? shader;
 
-        float[] vertices = {
+        public static float[] vertices = {
             -0.5f, -0.5f, 0.0f, //Bottom-left vertex
             0.5f, -0.5f, 0.0f, //Bottom-right vertex
             0.0f,  0.5f, 0.0f  //Top vertex
@@ -138,10 +138,26 @@ namespace testOne {
                 //GL.Disable(EnableCap.DepthTest);
                 shader.Use();
 
-                double timeValue = timer.Elapsed.TotalSeconds;
-                float greenValue = (float)Math.Sin(timeValue) / 2.0f + 0.5f;
+                GL.DeleteVertexArray(VertexArrayObject);
+
+                VertexArrayObject = GL.GenVertexArray();
+                GL.BindVertexArray(VertexArrayObject);
+
+                GL.BindBuffer(BufferTarget.ArrayBuffer, VertexBufferObject);
+                GL.BufferData(BufferTarget.ArrayBuffer, vertices.Length * sizeof(float), vertices, BufferUsageHint.StaticDraw);
+                // 3. then set our vertex attributes pointers
+                GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
+                GL.EnableVertexAttribArray(0);
+
+                double timeValue = timer.Elapsed.TotalMilliseconds / 30;
+                float mod = (float)Math.Sin(timeValue) / 2.0f + 0.5f;
+
                 int vertexColorLocation = GL.GetUniformLocation(shader.Handle, "vertexColor");
-                GL.Uniform4(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+                GL.Uniform4(vertexColorLocation, 
+                    colorPicked.X * mod,
+                    colorPicked.Y * mod,
+                    colorPicked.Z * mod,
+                    colorPicked.W * mod);
 
                 GL.ActiveTexture(TextureUnit.Texture0);
                 GL.BindTexture(TextureTarget.Texture2D, framebufferTexture);
