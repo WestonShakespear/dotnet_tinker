@@ -24,7 +24,27 @@ namespace testOne
         public static void WindowOnOffs()
         {
             LoadMenuBar();
-            LoadStatistics(spacing);
+            demoWindow();
+            demoValueWindow();
+            ImGui.ShowDemoWindow();
+        }
+
+        public static void LoadOCCTWindow(ref float CameraWidth, ref float CameraHeight, ref int framebufferTexture)
+        {
+            ImGui.Begin("OCCT");
+
+            CameraWidth = ImGui.GetWindowWidth();
+            CameraHeight = ImGui.GetWindowHeight() - ImGui.GetIO().FontGlobalScale * 71;
+
+            //isMainHovered = ImGui.IsWindowHovered();
+
+            ImGui.Image((IntPtr)framebufferTexture,
+                new System.Numerics.Vector2(CameraWidth, CameraHeight),
+                new System.Numerics.Vector2(0, 0.95f),
+                new System.Numerics.Vector2(1, 0),
+                new System.Numerics.Vector4(1.0f),
+                new System.Numerics.Vector4(1, 1, 1, 0.2f));
+            ImGui.End();
         }
        
 
@@ -99,11 +119,12 @@ namespace testOne
         {
             int col = 3;
             ImGui.Begin("Log");
-
             ImGui.BeginTable("Table", col);
+
             ImGui.TableSetupColumn("Level");
-            ImGui.TableSetupColumn("Message");
+
             ImGui.TableSetupColumn("Time");
+            ImGui.TableSetupColumn("Message");
             ImGui.TableHeadersRow();
 
             List<string[]> rev = new List<string[]>(logData);
@@ -121,63 +142,83 @@ namespace testOne
                 
             }
             ImGui.EndTable();
-            
-
             ImGui.End();
         }
 
-        public static void LoadStatistics(float spacing)
+
+
+        public static void demoWindow()
         {
-            Vector3 position = new Vector3(0.0f, 0.0f, 0.0f);
-            // Stats
-            ImGui.Begin("Statistics");
-            ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
-            ImGui.Separator();
-            ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
-
-            if (ImGui.TreeNode("Rendering"))
-            {
-                ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
-                ImGui.Text("Renderer: " + GL.GetString(StringName.Renderer));
-                ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
-                ImGui.Separator();
-                ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
-                ImGui.Text("FPS: " + ImGui.GetIO().Framerate.ToString("0.00"));
-                ImGui.Text("MS: " + (1000 / ImGui.GetIO().Framerate).ToString("0.00"));
-                ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
-                ImGui.Separator();
-                ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
-                // ImGui.Text("Objects: " + (Objects.Count).ToString());
-                // ImGui.Text("Point Lights: " + (numPL).ToString());
-                // ImGui.Text("Selected Object: " + selectedObject.ToString());
-                ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
-                ImGui.Separator();
-                ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
-                ImGui.Text("Viewport Width: "); ImGui.SameLine(); ImGui.Text(" | "); ImGui.SameLine(); ImGui.Text("Viewport Height: ");
-                ImGui.TreePop();
-            }
-
-            ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
-            ImGui.Separator();
-            ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
-
-            if (ImGui.TreeNode("Camera"))
-            {
-                ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
-                ImGui.Text("Yaw: ");
-                ImGui.Text("Pitch: ");
-                ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
-                ImGui.Separator();
-                ImGui.Text("X: " + position.X);
-                ImGui.Text("Y: " + position.Y);
-                ImGui.Text("Z: " + position.Z);
-                ImGui.TreePop();
-            }
-
-            ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
-            ImGui.Separator();
+            ImGui.Begin("Demo");
+            ImGui.SliderAngle("angle slider", ref Game.angle);
+            ImGui.ColorPicker4("color", ref Game.colorPicked);
             ImGui.End();
         }
+
+        public static void demoValueWindow()
+        {
+            ImGui.Begin("Values");
+            ImGui.Text(Game.angle.ToString());
+            ImGui.Separator();
+            ImGui.Text("R: " + Game.colorPicked.X.ToString());
+            ImGui.Text("G: " + Game.colorPicked.Y.ToString());
+            ImGui.Text("B: " + Game.colorPicked.Z.ToString());
+            ImGui.Text("A: " + Game.colorPicked.W.ToString());
+            ImGui.End();
+        }
+
+        // public static void LoadStatistics(float spacing)
+        // {
+        //     Vector3 position = new Vector3(0.0f, 0.0f, 0.0f);
+        //     // Stats
+        //     ImGui.Begin("Statistics");
+        //     ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
+        //     ImGui.Separator();
+        //     ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
+
+        //     if (ImGui.TreeNode("Rendering"))
+        //     {
+        //         ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
+        //         ImGui.Text("Renderer: " + GL.GetString(StringName.Renderer));
+        //         ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
+        //         ImGui.Separator();
+        //         ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
+        //         ImGui.Text("FPS: " + ImGui.GetIO().Framerate.ToString("0.00"));
+        //         ImGui.Text("MS: " + (1000 / ImGui.GetIO().Framerate).ToString("0.00"));
+        //         ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
+        //         ImGui.Separator();
+        //         ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
+        //         // ImGui.Text("Objects: " + (Objects.Count).ToString());
+        //         // ImGui.Text("Point Lights: " + (numPL).ToString());
+        //         // ImGui.Text("Selected Object: " + selectedObject.ToString());
+        //         ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
+        //         ImGui.Separator();
+        //         ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
+        //         ImGui.Text("Viewport Width: "); ImGui.SameLine(); ImGui.Text(" | "); ImGui.SameLine(); ImGui.Text("Viewport Height: ");
+        //         ImGui.TreePop();
+        //     }
+
+        //     ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
+        //     ImGui.Separator();
+        //     ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
+
+        //     if (ImGui.TreeNode("Camera"))
+        //     {
+        //         ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
+        //         ImGui.Text("Yaw: ");
+        //         ImGui.Text("Pitch: ");
+        //         ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
+        //         ImGui.Separator();
+        //         ImGui.Text("X: " + position.X);
+        //         ImGui.Text("Y: " + position.Y);
+        //         ImGui.Text("Z: " + position.Z);
+        //         ImGui.TreePop();
+        //     }
+
+        //     ImGui.Dummy(new System.Numerics.Vector2(0f, spacing));
+        //     ImGui.Separator();
+        //     ImGui.End();
+        // }
 
 
 

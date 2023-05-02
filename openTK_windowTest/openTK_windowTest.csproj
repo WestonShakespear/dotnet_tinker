@@ -12,6 +12,9 @@
     <PackageReference Include="ImGui.NET" Version="1.89.5" />
     <PackageReference Include="OpenTK" Version="4.7.7" />
     <PackageReference Include="StbImageSharp" Version="2.27.13" />
+    <Reference Include="MyAssembly">
+      <HintPath>C:\Users\Initec\Downloads\OCCT-samples-csharp-master\OCCT-samples-csharp-master\win64\bin\OCCTProxy.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

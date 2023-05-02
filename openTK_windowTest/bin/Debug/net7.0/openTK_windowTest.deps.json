@@ -10,7 +10,8 @@
         "dependencies": {
           "ImGui.NET": "1.89.5",
           "OpenTK": "4.7.7",
-          "StbImageSharp": "2.27.13"
+          "StbImageSharp": "2.27.13",
+          "OCCTProxy": "0.0.0.0"
         },
         "runtime": {
           "openTK_windowTest.dll": {}
@@ -205,7 +206,15 @@
       },
       "System.Buffers/4.4.0": {},
       "System.Numerics.Vectors/4.4.0": {},
-      "System.Runtime.CompilerServices.Unsafe/5.0.0": {}
+      "System.Runtime.CompilerServices.Unsafe/5.0.0": {},
+      "OCCTProxy/0.0.0.0": {
+        "runtime": {
+          "OCCTProxy.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      }
     }
   },
   "libraries": {
@@ -325,6 +334,11 @@
       "sha512": "sha512-ZD9TMpsmYJLrxbbmdvhwt9YEgG5WntEnZ/d1eH8JBX9LBp+Ju8BSBhUGbZMNVHHomWo2KVImJhTDl2hIgw/6MA==",
       "path": "system.runtime.compilerservices.unsafe/5.0.0",
       "hashPath": "system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+    },
+    "OCCTProxy/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

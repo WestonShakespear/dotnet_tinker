@@ -35,3 +35,5 @@ C:\Users\Initec\Documents\Personal\dotnet_tinker\openTK_windowTest\bin\Debug\net
 C:\Users\Initec\Documents\Personal\dotnet_tinker\openTK_windowTest\bin\Debug\net7.0\runtimes\win-arm64\native\cimgui.dll
 C:\Users\Initec\Documents\Personal\dotnet_tinker\openTK_windowTest\bin\Debug\net7.0\runtimes\win-x64\native\cimgui.dll
 C:\Users\Initec\Documents\Personal\dotnet_tinker\openTK_windowTest\bin\Debug\net7.0\runtimes\win-x86\native\cimgui.dll
+C:\Users\Initec\Documents\Personal\dotnet_tinker\openTK_windowTest\bin\Debug\net7.0\OCCTProxy.dll
+C:\Users\Initec\Documents\Personal\dotnet_tinker\openTK_windowTest\bin\Debug\net7.0\OCCTProxy.pdb
