@@ -15,6 +15,8 @@ namespace testOne {
         public static float CameraWidth;
         public static float CameraHeight;
 
+
+
         ImGuiController UIController;
 
         List<string[]> logData = new List<string[]>();
@@ -41,14 +43,12 @@ namespace testOne {
                 WindowBorder = WindowBorder.Resizable,
                 StartVisible = false,
                 StartFocused = true,
-                WindowState = WindowState.Normal,
                 API = ContextAPI.OpenGL,
                 Profile = ContextProfile.Core,
                 APIVersion = new Version(3, 3)
             })
         {
             // Center the window
-            this.CenterWindow();
             WindowHeight = Size.Y;
             WindowWidth = Size.X;
             CameraHeight = Size.Y;
@@ -134,7 +134,15 @@ namespace testOne {
         {
             if (shader != null)
             {
+                
+
+
+                
+
+
                 GL.BindFramebuffer(FramebufferTarget.Framebuffer, FBO);
+
+                GL.Clear(ClearBufferMask.ColorBufferBit);
                 //GL.Disable(EnableCap.DepthTest);
                 shader.Use();
 
@@ -185,7 +193,7 @@ namespace testOne {
 
             base.OnRenderFrame(args);
 
-            //GL.Clear(ClearBufferMask.ColorBufferBit);
+            
 
             
 
@@ -215,7 +223,7 @@ namespace testOne {
 
 
 
-            GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+            GL.ClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
             VertexBufferObject = GL.GenBuffer();
 

@@ -152,15 +152,13 @@ namespace testOne
             ImGui.Begin("Demo");
             ImGui.SliderFloat("Vert1X", ref Game.vertices[0], -1.0f, 1.0f);
             ImGui.SliderFloat("Vert1Y", ref Game.vertices[1], -1.0f, 1.0f);
-            ImGui.SliderFloat("Vert1Z", ref Game.vertices[2], -1.0f, 1.0f);
-
+            ImGui.Separator();
             ImGui.SliderFloat("Vert2X", ref Game.vertices[3], -1.0f, 1.0f);
             ImGui.SliderFloat("Vert2Y", ref Game.vertices[4], -1.0f, 1.0f);
-            ImGui.SliderFloat("Vert2Z", ref Game.vertices[5], -1.0f, 1.0f);
-
+            ImGui.Separator();
             ImGui.SliderFloat("Vert3X", ref Game.vertices[6], -1.0f, 1.0f);
             ImGui.SliderFloat("Vert3Y", ref Game.vertices[7], -1.0f, 1.0f);
-            ImGui.SliderFloat("Vert3Z", ref Game.vertices[8], -1.0f, 1.0f);
+            ImGui.Separator();
 
 
             ImGui.ColorPicker4("color", ref Game.colorPicked);
