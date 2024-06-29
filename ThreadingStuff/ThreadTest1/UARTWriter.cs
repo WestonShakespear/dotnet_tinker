@@ -19,8 +19,10 @@ public class UARTWriter : BaseThread
         // Check for values in send queue
         if (TXQueue.Count > 0)
         {
+            Output($"TXQueue count is: {TXQueue.Count} Obtaining Lock");
             lock (TXLock)
             {
+                Output("Obtained lock, reading from queue into an array");
                 // Store the amount to dequeue and create empty array for vals
                 int step = TXQueue.Count;
                 byte[] values = new byte[step];
