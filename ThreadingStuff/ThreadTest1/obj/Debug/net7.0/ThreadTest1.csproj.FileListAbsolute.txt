@@ -1,0 +1,15 @@
+C:\Users\Initec\github-repos\dotnet_tinker\ThreadingStuff\ThreadTest1\bin\Debug\net7.0\ThreadTest1.exe
+C:\Users\Initec\github-repos\dotnet_tinker\ThreadingStuff\ThreadTest1\bin\Debug\net7.0\ThreadTest1.deps.json
+C:\Users\Initec\github-repos\dotnet_tinker\ThreadingStuff\ThreadTest1\bin\Debug\net7.0\ThreadTest1.runtimeconfig.json
+C:\Users\Initec\github-repos\dotnet_tinker\ThreadingStuff\ThreadTest1\bin\Debug\net7.0\ThreadTest1.dll
+C:\Users\Initec\github-repos\dotnet_tinker\ThreadingStuff\ThreadTest1\bin\Debug\net7.0\ThreadTest1.pdb
+C:\Users\Initec\github-repos\dotnet_tinker\ThreadingStuff\ThreadTest1\obj\Debug\net7.0\ThreadTest1.csproj.AssemblyReference.cache
+C:\Users\Initec\github-repos\dotnet_tinker\ThreadingStuff\ThreadTest1\obj\Debug\net7.0\ThreadTest1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Initec\github-repos\dotnet_tinker\ThreadingStuff\ThreadTest1\obj\Debug\net7.0\ThreadTest1.AssemblyInfoInputs.cache
+C:\Users\Initec\github-repos\dotnet_tinker\ThreadingStuff\ThreadTest1\obj\Debug\net7.0\ThreadTest1.AssemblyInfo.cs
+C:\Users\Initec\github-repos\dotnet_tinker\ThreadingStuff\ThreadTest1\obj\Debug\net7.0\ThreadTest1.csproj.CoreCompileInputs.cache
+C:\Users\Initec\github-repos\dotnet_tinker\ThreadingStuff\ThreadTest1\obj\Debug\net7.0\ThreadTest1.dll
+C:\Users\Initec\github-repos\dotnet_tinker\ThreadingStuff\ThreadTest1\obj\Debug\net7.0\refint\ThreadTest1.dll
+C:\Users\Initec\github-repos\dotnet_tinker\ThreadingStuff\ThreadTest1\obj\Debug\net7.0\ThreadTest1.pdb
+C:\Users\Initec\github-repos\dotnet_tinker\ThreadingStuff\ThreadTest1\obj\Debug\net7.0\ThreadTest1.genruntimeconfig.cache
+C:\Users\Initec\github-repos\dotnet_tinker\ThreadingStuff\ThreadTest1\obj\Debug\net7.0\ref\ThreadTest1.dll

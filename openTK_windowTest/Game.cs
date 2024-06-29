@@ -139,7 +139,7 @@ namespace testOne {
 
                 
 
-
+                // Bind to generated framebuffer
                 GL.BindFramebuffer(FramebufferTarget.Framebuffer, FBO);
 
                 GL.Clear(ClearBufferMask.ColorBufferBit);
@@ -172,6 +172,7 @@ namespace testOne {
                 GL.BindVertexArray(VertexArrayObject);
                 GL.DrawArrays(PrimitiveType.Triangles, 0, 3);
 
+                // Bind back to original framebuffer
                 GL.BindFramebuffer(FramebufferTarget.Framebuffer, 0);
             }
 
@@ -261,6 +262,6 @@ namespace testOne {
         public float camHeight = 600f;
 
         public static float angle = 0.0f;
-        public static System.Numerics.Vector4 colorPicked = new System.Numerics.Vector4(0.0f);
+        public static System.Numerics.Vector4 colorPicked = new System.Numerics.Vector4(1.0f, 0.0f, 0.0f, 1.0f);
     }
 }
